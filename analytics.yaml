@@ -20,6 +20,7 @@ forms:
         none: None
         matomo: Matomo
         google: Google Analytics
+        fathom: Fathom
 
     matomo_url:
       type: text
@@ -38,3 +39,15 @@ forms:
       label: Google Tracking ID
       help: You can find the tracking id in google under property. It starts with UA-
       placeholder: 'UA-12345-6'
+
+    fathom_url:
+      type: url
+      label: Fathom Script URL
+      help: If you use a custom domain, you can find the Script URL in sites > settings under https://app.usefathom.com/. If empty the default script.js will be used.
+      placeholder: 'https://cdn.usefathom.com/script.js'
+
+    fathom_id:
+      type: text
+      label: Fathom SiteID
+      help: If you use a custom domain, you can find the Script URL in sites > settings under https://app.usefathom.com/.
+      placeholder: 'VZNKNKJP'
