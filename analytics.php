@@ -29,7 +29,7 @@ class Analytics extends Plugin
 		$loader->addPath(__DIR__ . '/templates');
 
 		$analyticSettings = $this->settings['settings']['plugins']['analytics'];
-	
+
 		if(isset($analyticSettings['tool']))
 		{
 			/* fetch the template, render it with twig and add javascript with settings */
@@ -41,7 +41,12 @@ class Analytics extends Plugin
 			{
 				$this->addJS('https://www.googletagmanager.com/gtag/js?id=' . $analyticSettings['google_id']);
 				$this->addInlineJS($twig->fetch('/googleanalytics.twig', $analyticSettings));
-			}			
+			}elseif($analyticSettings['tool'] == 'fathom'){
+				if(empty($analyticSettings['fathom_url'])){
+					$analyticSettings['fathom_url'] = 'https://cdn.usefathom.com/script.js';
+				}
+				$this->addInlineJS($twig->fetch('/fathomanalytics.twig', $analyticSettings));
+			}
 		}
 	}
 }
