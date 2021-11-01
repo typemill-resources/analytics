@@ -1,0 +1,5 @@
+(function(){
+	var u="{{ fathom_url }}";
+	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	g.type='text/javascript'; g.defer=true; g.src=u; g.defer="true"; g.setAttribute("data-site", "{{ fathom_id }}"); s.parentNode.insertBefore(g,s);
+})();
