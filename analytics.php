@@ -35,14 +35,17 @@ class Analytics extends Plugin
 			/* fetch the template, render it with twig and add javascript with settings */
 			if($analyticSettings['tool'] == 'matomo')
 			{
-				$this->addInlineJS($twig->fetch('/matomoanalytics.twig', $this->settings));
+				$this->addInlineJS($twig->fetch('/matomoanalytics.twig', $analyticSettings));
 			}
 			elseif($analyticSettings['tool'] == 'google')
 			{
 				$this->addJS('https://www.googletagmanager.com/gtag/js?id=' . $analyticSettings['google_id']);
 				$this->addInlineJS($twig->fetch('/googleanalytics.twig', $analyticSettings));
-			}elseif($analyticSettings['tool'] == 'fathom'){
-				if(empty($analyticSettings['fathom_url'])){
+			}
+			elseif($analyticSettings['tool'] == 'fathom')
+			{
+				if(empty($analyticSettings['fathom_url']))
+				{
 					$analyticSettings['fathom_url'] = 'https://cdn.usefathom.com/script.js';
 				}
 				$this->addInlineJS($twig->fetch('/fathomanalytics.twig', $analyticSettings));

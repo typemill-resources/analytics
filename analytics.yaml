@@ -1,6 +1,6 @@
 name: Analytics
-version: 1.1.0
-description: Integrate Matomo or Google Analytics into your website.
+version: 1.2.0
+description: Integrate Matomo, Fathom or Google Analytics into your website.
 author: Trendschau
 homepage: http://typemill.net
 licence: MIT
@@ -22,32 +22,52 @@ forms:
         google: Google Analytics
         fathom: Fathom
 
-    matomo_url:
-      type: text
-      label: Matomo URL
-      help: Add the URL to your matomo installation without protocol like this: my-site.com.
-      placeholder: 'url like my-matomo-installation.com'
+    matomo:
+      type: fieldset
+      legend: Matomo
+      fields:
 
-    matomo_id:
-      type: number
-      label: Matomo Site-ID
-      help: You can find the id in Matomo under configuration and tracking code.
-      placeholder: 'simple number like 8'
+        matomo_url:
+          type: text
+          label: Matomo URL
+          help: Add the URL to your matomo installation without protocol like this: my-site.com.
+          placeholder: 'url like my-matomo-installation.com'
 
-    google_id:
-      type: text
-      label: Google Tracking ID
-      help: You can find the tracking id in google under property. It starts with UA-
-      placeholder: 'UA-12345-6'
+        matomo_id:
+          type: number
+          label: Matomo Site-ID
+          help: You can find the id in Matomo under configuration and tracking code.
+          placeholder: 'simple number like 8'
 
-    fathom_url:
-      type: url
-      label: Fathom Script URL
-      help: If you use a custom domain, you can find the Script URL in sites > settings under https://app.usefathom.com/. If empty the default script.js will be used.
-      placeholder: 'https://cdn.usefathom.com/script.js'
+        matomo_nocookie:
+          type: checkbox
+          label: Cookies
+          checkboxlabel: Track without cookies
 
-    fathom_id:
-      type: text
-      label: Fathom SiteID
-      help: If you use a custom domain, you can find the Script URL in sites > settings under https://app.usefathom.com/.
-      placeholder: 'VZNKNKJP'
+    fathom:
+      type: fieldset
+      legend: Fathom
+      fields:
+
+        fathom_url:
+          type: url
+          label: Fathom Script URL
+          help: If you use a custom domain, you can find the Script URL in sites > settings under https://app.usefathom.com/. If empty the default script.js will be used.
+          placeholder: 'https://cdn.usefathom.com/script.js'
+
+        fathom_id:
+          type: text
+          label: Fathom SiteID
+          help: If you use a custom domain, you can find the Script URL in sites > settings under https://app.usefathom.com/.
+          placeholder: 'VZNKNKJP'
+
+    google:
+      type: fieldset
+      legend: Google Analytics
+      fields:
+    
+        google_id:
+          type: text
+          label: Google Tracking ID
+          help: You can find the tracking id in google under property. It starts with UA-
+          placeholder: 'UA-12345-6'
