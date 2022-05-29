@@ -1,5 +1,5 @@
 name: Analytics
-version: 1.2.0
+version: 1.2.1
 description: Integrate Matomo, Fathom or Google Analytics into your website.
 author: Trendschau
 homepage: http://typemill.net
@@ -30,7 +30,7 @@ forms:
         matomo_url:
           type: text
           label: Matomo URL
-          help: Add the URL to your matomo installation without protocol like this: my-site.com.
+          help: "Add the URL to your matomo installation without protocol like this: my-site.com."
           placeholder: 'url like my-matomo-installation.com'
 
         matomo_id:
