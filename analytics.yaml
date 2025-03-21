@@ -1,5 +1,5 @@
 name: Analytics
-version: 2.1.0
+version: 2.1.1
 description: Integrate Matomo, Fathom or Google Analytics into your website.
 author: Trendschau
 homepage: http://typemill.net
@@ -66,6 +66,6 @@ forms:
     
         google_id:
           type: text
-          label: "Google Tracking ID"
-          placeholder: "UA-12345-6"
-          description: "You can find the tracking id in google under property. It starts with UA-"
+          label: "Google Measurement ID"
+          placeholder: "G-XXXXXXXXXX"
+          description: "You can find the Measurement ID in Google Analytics under your data stream settings. It starts with 'G-'."
