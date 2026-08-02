@@ -6,8 +6,6 @@ use \Typemill\Plugin;
 
 class Analytics extends Plugin
 {
-	protected $settings;
-	
     public static function getSubscribedEvents()
     {
 		return array(
@@ -50,6 +48,14 @@ class Analytics extends Plugin
 				}
 				$this->addInlineJS($twig->fetch('/fathomanalytics.twig', $analyticSettings));
 			}
+			elseif($analyticSettings['tool'] == 'plausible')
+			{
+				if(empty($analyticSettings['plausible_url']))
+				{
+					$analyticSettings['plausible_url'] = 'https://plausible.io/js/script.js';
+				}
+				$this->addInlineJS($twig->fetch('/plausibleanalytics.twig', $analyticSettings));
+			}
 		}
 	}
 
@@ -57,7 +63,7 @@ class Analytics extends Plugin
 	{
 		$data = $csp->getData();
 
-		$domain = '';
+		$domains = array();
 
 		$analyticSettings = $this->getPluginSettings();
 		
@@ -67,24 +73,42 @@ class Analytics extends Plugin
 			{
 				if(!empty($analyticSettings['matomo_url']))
 				{
-					$domain = trim($analyticSettings['matomo_url']);
+					$domains[] = trim($analyticSettings['matomo_url']);
+				}
+				if(!empty($analyticSettings['matomo_cloud']))
+				{
+					$domains[] = 'https://cdn.matomo.cloud';
 				}
 			}
 			elseif($analyticSettings['tool'] == 'google')
 			{
-				$domain = 'https://www.googletagmanager.com/';
+				$domains[] = 'https://www.googletagmanager.com/';
 			}
 			elseif($analyticSettings['tool'] == 'fathom')
 			{
-				$domain = 'https://cdn.usefathom.com/';
+				$domains[] = 'https://cdn.usefathom.com/';
 				if(!empty($analyticSettings['fathom_url']))
 				{
-					$domain = trim($analyticSettings['fathom_url']);
+					$domains[] = trim($analyticSettings['fathom_url']);
+				}
+			}
+			elseif($analyticSettings['tool'] == 'plausible')
+			{
+				$domains[] = 'https://plausible.io';
+				if(!empty($analyticSettings['plausible_url']))
+				{
+					$domains[] = trim($analyticSettings['plausible_url']);
 				}
 			}
 		}
 
-		$data[] = $domain;
+		foreach($domains as $domain)
+		{
+			if($domain != '')
+			{
+				$data[] = $domain;
+			}
+		}
 
 		$csp->setData($data);
 	}

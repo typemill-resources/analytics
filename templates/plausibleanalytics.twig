@@ -1,0 +1,5 @@
+(function(){
+	var u="{{ plausible_url }}";
+	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	g.type='text/javascript'; g.defer=true; g.setAttribute("data-domain", "{{ plausible_domain }}"); g.src=u; s.parentNode.insertBefore(g,s);
+})();

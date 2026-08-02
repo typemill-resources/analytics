@@ -1,6 +1,6 @@
 name: Analytics
-version: 2.1.1
-description: Integrate Matomo, Fathom or Google Analytics into your website.
+version: 2.2.0
+description: Integrate Matomo, Fathom, Plausible or Google Analytics into your website.
 author: Trendschau
 homepage: http://typemill.net
 license: MIT
@@ -19,6 +19,7 @@ forms:
         matomo: Matomo
         google: Google Analytics
         fathom: Fathom
+        plausible: Plausible
 
     matomo:
       type: fieldset
@@ -36,6 +37,12 @@ forms:
           label: "Matomo Site-ID"
           placeholder: "8"
           description: "You can find the id in Matomo under configuration and tracking code."
+
+        matomo_cloud:
+          type: checkbox
+          label: "Matomo Cloud"
+          checkboxlabel: "Use Matomo Cloud hosting"
+          description: "Check this if your Matomo URL is a Matomo Cloud subdomain (e.g. mysite.matomo.cloud). It loads the tracker script from cdn.matomo.cloud."
 
         matomo_nocookie:
           type: checkbox
@@ -58,6 +65,23 @@ forms:
           label: "Fathom SiteID"
           placeholder: 'VZNKNKJP'
           description: "If you use a custom domain, you can find the Script URL in sites > settings under https://app.usefathom.com/."
+
+    plausible:
+      type: fieldset
+      legend: "Plausible"
+      fields:
+
+        plausible_domain:
+          type: text
+          label: "Plausible Data Domain"
+          placeholder: 'yourdomain.com'
+          description: "The domain you have added to Plausible (without https://)."
+
+        plausible_url:
+          type: url
+          label: "Plausible Script URL"
+          placeholder: 'https://plausible.io/js/script.js'
+          description: "If you use a custom domain or self-hosted Plausible, enter your script URL. If empty, the default https://plausible.io/js/script.js will be used."
 
     google:
       type: fieldset
