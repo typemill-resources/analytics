@@ -3,6 +3,7 @@ version: 2.2.0
 description: Integrate Matomo, Fathom, Plausible or Google Analytics into your website.
 author: Trendschau
 homepage: http://typemill.net
+repo: https://github.com/typemill-resources/analytics
 license: MIT
 
 settings:

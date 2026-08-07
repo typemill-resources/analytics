@@ -2,6 +2,8 @@
 
 Add Matomo, Fathom, Plausible, or Google Analytics to your website with this simple plugin.
 
+![Screenshot of Matomo Analytics](media/live/matomo.png){.center loading="lazy" width="820" height="369"}
+
 The plugin integrates the tracking scripts at the bottom of the page. Right now you can choose between the free and open source tracking software [Matomo](https://matomo.org/), [Fathom Analytics](https://usefathom.com/), [Plausible Analytics](https://plausible.io/), and [Google Analytics](https://analytics.google.com).
 
 ## Matomo Analytics
