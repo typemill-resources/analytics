@@ -1,10 +1,10 @@
 # Analytics Plugin
 
-Add Matomo, Fathom, Plausible, or Google Analytics to your website with this simple plugin.
+Add Matomo, Fathom, Plausible, Privatus Analytics, or Google Analytics to your website with this simple plugin.
 
 ![Screenshot of Matomo Analytics](media/live/matomo.png){.center loading="lazy" width="820" height="369"}
 
-The plugin integrates the tracking scripts at the bottom of the page. Right now you can choose between the free and open source tracking software [Matomo](https://matomo.org/), [Fathom Analytics](https://usefathom.com/), [Plausible Analytics](https://plausible.io/), and [Google Analytics](https://analytics.google.com).
+The plugin integrates the tracking scripts at the bottom of the page. Right now you can choose between the free and open source tracking software [Matomo](https://matomo.org/), [Fathom Analytics](https://usefathom.com/), [Plausible Analytics](https://plausible.io/), [Privatus Analytics](https://privatusanalytics.com/), and [Google Analytics](https://analytics.google.com).
 
 ## Matomo Analytics
 
@@ -28,6 +28,10 @@ If you do not want to self-host your own analytics software but still need a goo
 ## Plausible Analytics
 
 [Plausible Analytics](https://plausible.io/) is a lightweight, open source, privacy-friendly analytics tool. It does not use cookies and does not require a cookie banner under GDPR. Add the domain you registered in Plausible and, optionally, your custom or self-hosted script URL. If you leave the script URL empty, the plugin uses the default `https://plausible.io/js/script.js`.
+
+## Privatus Analytics
+
+[Privatus Analytics](https://privatusanalytics.com/) is a cookieless analytics service. It sets no cookies, keeps no IP addresses and filters out bots. Add your site ID, which starts with `pa_`. You find it in Privatus Analytics under Site settings, Tracking. You can also choose the extra tracking to load: time on page, outbound links and downloads, Web Vitals, click maps and on-site surveys. There is a free plan with 10,000 events a month.
 
 ## Google Analytics
 

@@ -1,6 +1,6 @@
 name: Analytics
-version: 2.2.0
-description: Integrate Matomo, Fathom, Plausible or Google Analytics into your website.
+version: 2.3.0
+description: Integrate Matomo, Fathom, Plausible, Privatus Analytics or Google Analytics into your website.
 author: Trendschau
 homepage: http://typemill.net
 repo: https://github.com/typemill-resources/analytics
@@ -8,6 +8,11 @@ license: MIT
 
 settings:
   tool: none
+  privatus_engage: true
+  privatus_auto: true
+  privatus_vitals: true
+  privatus_clicks: true
+  privatus_ask: true
 
 forms:
   fields:
@@ -21,6 +26,7 @@ forms:
         google: Google Analytics
         fathom: Fathom
         plausible: Plausible
+        privatus: Privatus Analytics
 
     matomo:
       type: fieldset
@@ -83,6 +89,42 @@ forms:
           label: "Plausible Script URL"
           placeholder: 'https://plausible.io/js/script.js'
           description: "If you use a custom domain or self-hosted Plausible, enter your script URL. If empty, the default https://plausible.io/js/script.js will be used."
+
+    privatus:
+      type: fieldset
+      legend: "Privatus Analytics"
+      fields:
+
+        privatus_id:
+          type: text
+          label: "Privatus Analytics Site ID"
+          placeholder: 'pa_7Q2K9XH3AB'
+          description: "It starts with pa_. You find it in Privatus Analytics under Site settings, Tracking."
+
+        privatus_engage:
+          type: checkbox
+          label: "Time on Page"
+          checkboxlabel: "Track time on page and scroll depth"
+
+        privatus_auto:
+          type: checkbox
+          label: "Links, Downloads and Forms"
+          checkboxlabel: "Track outbound links, file downloads, form submits and 404 pages"
+
+        privatus_vitals:
+          type: checkbox
+          label: "Web Vitals"
+          checkboxlabel: "Track page speed (Core Web Vitals)"
+
+        privatus_clicks:
+          type: checkbox
+          label: "Click Maps"
+          checkboxlabel: "Record click maps"
+
+        privatus_ask:
+          type: checkbox
+          label: "Surveys"
+          checkboxlabel: "Show on-site surveys"
 
     google:
       type: fieldset
