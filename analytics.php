@@ -56,6 +56,27 @@ class Analytics extends Plugin
 				}
 				$this->addInlineJS($twig->fetch('/plausibleanalytics.twig', $analyticSettings));
 			}
+			elseif($analyticSettings['tool'] == 'privatus')
+			{
+				$privatusId = isset($analyticSettings['privatus_id']) ? trim($analyticSettings['privatus_id']) : '';
+
+				# only print the script for a valid site id like pa_7Q2K9XH3AB
+				if(preg_match('/^pa_[A-Za-z0-9]+$/', $privatusId))
+				{
+					$privatusModules = array();
+					foreach(array('engage', 'auto', 'vitals', 'clicks', 'ask') as $module)
+					{
+						if(!empty($analyticSettings['privatus_' . $module]))
+						{
+							$privatusModules[] = $module;
+						}
+					}
+					$this->addInlineJS($twig->fetch('/privatusanalytics.twig', array(
+						'privatus_id' 		=> $privatusId,
+						'privatus_modules' 	=> implode(',', $privatusModules),
+					)));
+				}
+			}
 		}
 	}
 
@@ -99,6 +120,10 @@ class Analytics extends Plugin
 				{
 					$domains[] = trim($analyticSettings['plausible_url']);
 				}
+			}
+			elseif($analyticSettings['tool'] == 'privatus')
+			{
+				$domains[] = 'https://privatusstats.com';
 			}
 		}
 

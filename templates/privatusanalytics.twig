@@ -1,0 +1,4 @@
+(function(){
+	var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	g.defer=true; g.src="https://privatusstats.com/js/pa.js"; g.setAttribute("data-site", "{{ privatus_id|e('js') }}"); g.setAttribute("data-modules", "{{ privatus_modules|e('js') }}"); s.parentNode.insertBefore(g,s);
+})();
