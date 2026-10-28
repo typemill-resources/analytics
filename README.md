@@ -43,6 +43,10 @@ Found a bug? Or do you want to contribute some improvements? You can find the re
 
 ## Changelog
 
+### Version 2.3.0
+
+* Add Privatus Analytics integration.
+
 ### Version 2.2.0
 
 * Added Plausible Analytics integration.
